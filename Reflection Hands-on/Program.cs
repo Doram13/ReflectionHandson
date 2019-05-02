@@ -7,20 +7,27 @@ namespace Reflection_Hands_on
     {
         static void Main(string[] args)
         {
-            ShowAssembly(new Assembly());
+            string path = @"C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.dll";
+
+            Assembly assembly = Assembly.LoadFile(path);
+            ShowAssembly(assembly);
+
+            Assembly ourAssembly = Assembly.GetExecutingAssembly();
+            ShowAssembly(ourAssembly);
+            ShowAssembly(assembly);
             Console.ReadLine();
         }
 
         public static void ShowAssembly(Assembly assembly)
         {
-
-            Type ClassType = assembly.GetType();
-            
-            Console.WriteLine(ClassType.AssemblyQualifiedName);
-            Console.WriteLine(ClassType.FullName);
-            Console.WriteLine(ClassType.Assembly.GlobalAssemblyCache);
-            Console.WriteLine(ClassType.Assembly.Location);
-            Console.WriteLine(ClassType.Assembly.ImageRuntimeVersion);
+            Console.WriteLine(assembly.FullName);
+            Console.WriteLine(assembly.GlobalAssemblyCache);
+            Console.WriteLine(assembly.Location);
+            Console.WriteLine(assembly.ImageRuntimeVersion);
+            foreach (Module method in assembly.GetModules())
+            {
+                Console.WriteLine(" Mod: {0}", method.Name);
+            }
 
         }
     }
