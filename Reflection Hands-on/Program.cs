@@ -14,19 +14,18 @@ namespace Reflection_Hands_on
 
             Assembly ourAssembly = Assembly.GetExecutingAssembly();
             ShowAssembly(ourAssembly);
-            ShowAssembly(assembly);
             Console.ReadLine();
         }
 
         public static void ShowAssembly(Assembly assembly)
         {
             Console.WriteLine(assembly.FullName);
-            Console.WriteLine(assembly.GlobalAssemblyCache);
-            Console.WriteLine(assembly.Location);
-            Console.WriteLine(assembly.ImageRuntimeVersion);
+            Console.WriteLine("From Global Assembly Cache: " + assembly.GlobalAssemblyCache);
+            Console.WriteLine("Path: " + assembly.Location);
+            Console.WriteLine("Version: " + assembly.ImageRuntimeVersion);
             foreach (Module method in assembly.GetModules())
             {
-                Console.WriteLine(" Mod: {0}", method.Name);
+                Console.WriteLine(" Modules: {0}", method.Name);
             }
 
         }
