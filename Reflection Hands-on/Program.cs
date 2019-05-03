@@ -27,6 +27,7 @@ namespace Reflection_Hands_on
             {
                 Console.WriteLine(" Modules: {0}", method.Name);
             }
+            Console.WriteLine();
 
         }
     }
