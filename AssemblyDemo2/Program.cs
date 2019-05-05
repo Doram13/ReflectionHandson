@@ -8,9 +8,9 @@ namespace AssemblyDemo2
         static void Main(string[] args)
         {
             string path = @"C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.ServiceProcess.dll";
-
+            
             // Using BindingFlags to only get declared and instance members
-
+          
             BindingFlags flags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance;
 
 
